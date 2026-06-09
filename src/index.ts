@@ -1,5 +1,6 @@
 import express from "express";
 import user from "./routes/user";
+import chat from "./routes/chat";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.get("/",(req,res)=>{
 });
 
 app.use("/user",user);
+app.use("/chat",chat);
 
 app.listen(3000,()=>{
 console.log("API Started...");
