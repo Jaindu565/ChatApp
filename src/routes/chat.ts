@@ -35,13 +35,14 @@ router.get("/get-chats", async (req, res) => {
 
       const data = {
         user: user[0],
-        last_massage: message[0],
+        last_message: message[0],
       };
 
       chatData.push(data);
     }
 
     res.status(200).send(chatData);
+    console.log(chatData);
 
   } catch (error) {
     res.status(500).send({msg:"Search Error"});
