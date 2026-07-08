@@ -59,7 +59,17 @@ console.log(msgData);
             }
                 
              
-        })
+        });
+
+        ws.on("close",()=>{
+
+            userConnections.forEach((value,key) => {
+
+                if (value === ws) userConnections.delete(key);
+
+            });
+
+        });
     });
 
 }

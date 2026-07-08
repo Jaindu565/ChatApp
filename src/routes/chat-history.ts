@@ -14,7 +14,7 @@ router.get("/get-chat-history", async (req,res)=>{
             res.status(400).send({msg:"chat Id required"});
         }
 
-        const [chatData] = await pool.query("SELECT * FROM chat_history WHERE chat_chat_id = ?",[chatId]);
+        const [chatData] = await pool.query("SELECT * FROM chat_history WHERE chat_chat_id = ? ORDER BY sent_at DESC",[chatId]);
         
         res.status(200).send(chatData);
         
